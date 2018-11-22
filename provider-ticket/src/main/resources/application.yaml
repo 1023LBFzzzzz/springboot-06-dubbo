@@ -1,0 +1,18 @@
+dubbo:
+  application:
+    name: provider-ticket
+  registry:
+    address: zookeeper://127.0.0.1:2181
+  scan:
+    basePackages: com.springboot.ticket.service #dubbo2.6.2之后需要使用basePackages而非
+                                                                  #base-packages
+  protocol:
+    port: 12345
+    status: server
+    id: dubbo
+    name: dubbo
+    serialization: kryo
+  provider:
+      loadbalance: roundrobin  #开启负载均衡
+server:
+  port: 8081
